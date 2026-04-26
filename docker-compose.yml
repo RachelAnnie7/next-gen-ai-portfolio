@@ -1,0 +1,29 @@
+traefik:
+  image: traefik:v3.11.1
+  container_name: dokploy-traefik
+  restart: unless-stopped
+  command:
+   - "--api.insecure=true"
+   - "--providers.docker=true"
+   - "--providers.docker.exposedbydefault=false"    
+   - "--entrypoints.web.address=:80"
+   - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+   - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+   - "--entrypoints.websecure.address=:443"
+   - "--certificatesresolvers.letsencrypt.acme.email=\$(ACME_EMAIL)"
+   - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+   - "--certificatesresolvers.letsencrypt.dnschallenge.provider=cloudflare"
+   - "--certificatesresolvers.letsencrypt.dnschallenge.delayBeforeCheck=0"
+   - "--certificatesresolvers.letsencrypt.dnschallenge.resolvers=1.1.1.1:53,1.0.0.1:53"
+  env_file: 
+   - .env.traefik
+  ports:
+   - "80:80"
+   - "443:443"
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock:ro
+   - traefik_acme:/letsencrypt
+  networks: 
+   - dokploy
+
+
