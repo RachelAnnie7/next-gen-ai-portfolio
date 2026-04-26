@@ -87,7 +87,7 @@ This document provides a detailed overview of all the dummy data available for y
 ## 🎓 Education Data (2 degrees)
 
 1. **Western Governors University**
-   - Master of Science in Computer Science
+   - Bachelors of Science in Computer Science
    - GPA: 3.8/4.0
    - Specialized in AI/ML
 
