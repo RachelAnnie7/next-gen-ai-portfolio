@@ -2,7 +2,7 @@ services:
   next-app:
     build:
       context: ./nextgen-ai-portfolio
-      dockerfile: prod.Dockerfile
+      dockerfile: Dockerfile
       args:
         ENV_VARIABLE: ${ENV_VARIABLE}
         NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
