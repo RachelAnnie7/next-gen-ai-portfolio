@@ -27,10 +27,10 @@ This document provides a detailed overview of all the dummy data available for y
 **Document ID:** `singleton-profile` (configured as singleton in structure.ts)
 
 **Content:**
-- **Name:** John Doe
-- **Role:** Full-Stack Developer & AI Engineer
-- **Experience:** 8 years
-- **Location:** San Francisco, CA
+- **Name:** Rachel Harris
+- **Role:** AI Engineer
+- **Experience:** 13 years
+- **Location:** Memphis, TN
 - **Status:** Open to opportunities
 
 **Includes:**
@@ -49,7 +49,7 @@ This document provides a detailed overview of all the dummy data available for y
 - **Frontend:** React (95%), Next.js (90%), TypeScript (90%), Tailwind CSS (93%)
 - **Backend:** Node.js (92%), Python (85%), GraphQL (80%)
 - **AI/ML:** OpenAI API (95%), TensorFlow (80%)
-- **Cloud:** AWS (85%)
+- **Cloud:** Azure (85%)
 - **DevOps:** Docker (88%)
 - **Database:** PostgreSQL (85%), MongoDB (82%)
 - **Tools:** Git (95%)
@@ -67,10 +67,10 @@ This document provides a detailed overview of all the dummy data available for y
 
 ## 🏢 Experience Data (4 positions)
 
-1. **TechCorp Solutions** - Senior Full-Stack Engineer (2021-Present) ⭐ Current
-2. **InnovateLab** - Full-Stack Developer (2019-2021)
-3. **StartupXYZ** - Software Engineer (2017-2018)
-4. **CodeMasters Inc** - Junior Developer (2016-2017)
+1. **Cyber Guards** - Cyber Security Engineer (2023-Present) ⭐ Current
+2. **City of Memphis** - System Engineer II (2021-2023)
+3. **Hilton** - Azure Cloud Engineer (2018-2021)
+4. **FedEx** - Azure Cloud Engineer (2017-2018)
 
 **Each includes:**
 - ✅ Company details and location
@@ -86,17 +86,16 @@ This document provides a detailed overview of all the dummy data available for y
 
 ## 🎓 Education Data (2 degrees)
 
-1. **Stanford University**
+1. **Western Governors University**
    - Master of Science in Computer Science
-   - GPA: 3.9/4.0
+   - GPA: 3.8/4.0
    - Specialized in AI/ML
-   - Multiple achievements listed
 
-2. **University of California, Berkeley**
-   - Bachelor of Science in Computer Science
-   - GPA: 3.7/4.0
+2. **ITT Tecnical Institute**
+   - Associates of Science in Computer Science
+   - GPA: 3.9/4.0
    - Summa Cum Laude
-   - Multiple achievements listed
+   - Student Worker in Tech Office
 
 **Features:**
 - ✅ Degree and field of study
