@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package.json package-lock.json* ./
 RUN npm install -g npm@latest
-RUN npm ci
+RUN npm install-clean
 
 # --- Stage 2: Builder ---
 FROM node:20-alpine AS builder
