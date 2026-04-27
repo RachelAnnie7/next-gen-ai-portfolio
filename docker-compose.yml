@@ -1,22 +1,32 @@
 services:
-  next-app:
+  nextjs-app:
     build:
-      context: ./nextgen-ai-portfolio
+      context: .
       dockerfile: Dockerfile
-      args:
-        ENV_VARIABLE: ${ENV_VARIABLE}
-        NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    container_name: jiriki-nextjs
+    args:
+        - NEXT_PUBLIC_SANITY_PROJECT_ID=${NEXT_PUBLIC_SANITY_PROJECT_ID}
+        - NEXT_PUBLIC_SANITY_DATASET=${NEXT_PUBLIC_SANITY_DATASET}
+        - NEXT_PUBLIC_SANITY_API_VERSION=${NEXT_PUBLIC_SANITY_API_VERSION}
+        - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        - NEXT_PUBLIC_CLERK_SIGN_IN_URL=${NEXT_PUBLIC_CLERK_SIGN_IN_URL}
+        - NEXT_PUBLIC_CLERK_SIGN_UP_URL=${NEXT_PUBLIC_CLERK_SIGN_UP_URL}
     restart: always
-    ports:
-      - 3000
+    environment: 
+      - NODE_ENV=production
+      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+      - SANITY_API_TOKEN=${SANITY_API_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - AI_TWIN_SYSTEM_PROMPT=${AI_TWIN_SYSTEM_PROMPT}
     networks:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.<unique-name>.rule=Host(`jiriki.tech`)"
-      - "traefik.http.routers.<unique-name>.entrypoints=websecure"
-      - "traefik.http.routers.<unique-name>.tls.certResolver=letsencrypt"
-      - "traefik.http.services.<unique-name>.loadbalancer.server.port=3000"
+      - "traefik.http.routers.jiriki.rule=Host(`jiriki.tech`) || Host('www.jiriki.tech')"
+      - "traefik.http.routers.jiriki.entrypoints=websecure"
+      - "traefik.http.routers.jiriki.tls.certResolver=letsencrypt"
+      - "traefik.http.services.jiriki.loadbalancer.server.port=3000"
 networks:
   dokploy-network:
     external: true
