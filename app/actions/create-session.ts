@@ -20,7 +20,7 @@ export async function createSession() {
   }
 
   // Create ChatKit session with Clerk user ID
-  const response = await fetch("https://api.openai.com/v1/chatkit/sessions", {
+  const response = await fetch("https://api.openai.com/v6/chatkit/sessions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
