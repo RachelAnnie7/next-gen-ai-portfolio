@@ -7,16 +7,25 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import { NextStudio } from "next-sanity/studio";
+
+/**
+ * Sanity Studio catch-all route.
+ * @see https://github.com/sanity-io/next-sanity
+ */
+
+//import { NextStudio } from "next-sanity/studio";
 import config from "@/sanity.config";
+import Studio from './Studio';
 
-export { metadata, viewport } from "next-sanity/studio";
+export { metadata, viewport } from 'next-sanity/studio';
 
-// Generate the base studio route for static generation
 export function generateStaticParams() {
   return [{ tool: [] }];
 }
 
 export default function StudioPage() {
-  return <NextStudio config={config} />;
+  return <Studio />;
 }
+
+
+
