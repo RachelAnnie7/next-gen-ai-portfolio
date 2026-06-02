@@ -1,0 +1,20 @@
+services:
+  nextjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jiriki-nextjs
+    restart: always
+    environment: 
+      - NODE_ENV=production
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jiriki.rule=Host(`jiriki.tech`) || Host('www.jiriki.tech')"
+      - "traefik.http.routers.jiriki.entrypoints=websecure"
+      - "traefik.http.routers.jiriki.tls.certResolver=letsencrypt"
+      - "traefik.http.services.jiriki.loadbalancer.server.port=3000"
+networks:
+  dokploy-network:
+    external: true
