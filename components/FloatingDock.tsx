@@ -1,9 +1,8 @@
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/sanity/lib/live";
-import { FloatingDockClient } from "./FloatingDockClient";
+import { defineQuery } from 'next-sanity';
+import { FloatingDockClient } from '@/components/FloatingDockClient';
+import { sanityFetch } from '@/sanity/lib/live';
 
-const NAVIGATION_QUERY =
-  defineQuery(`*[_type == "navigation"] | order(order asc){
+const NAVIGATION_QUERY = defineQuery(`*[_type == "navigation"] | order(order asc){
   title,
   href,
   icon,
@@ -12,10 +11,11 @@ const NAVIGATION_QUERY =
 
 export async function FloatingDock() {
   const { data: navItems } = await sanityFetch({ query: NAVIGATION_QUERY });
+  const items = Array.isArray(navItems) ? navItems : [];
 
-  if (!navItems || navItems.length === 0) {
+  if (items.length === 0) {
     return null;
   }
 
-  return <FloatingDockClient navItems={navItems} />;
+  return <FloatingDockClient navItems={items} />;
 }
